@@ -58,5 +58,21 @@ May be possible to implement as a helper function (with `Function::toString`) or
 ```js
 import nullDefaults from 'null-defaults'
 
-const foo = nullDefaults((foo = {})
+const foo = nullDefaults((bar = {}) => {
+  // ...
+})
 ```
+
+or as a decorator:
+
+```js
+const foo = @nullDefaults (bar = {}) => {
+  // ...
+}
+```
+
+where `nullDefaults`, untranspiled, would:
+1. Parse the function definition and find arguments with default values with `Function::toString`.
+2. Wrap that function in a function that accepts the same parameters, but applies defaults even when null. Note: this would not work with defaults referring to variables in scope at definition site.
+
+Whereas transpilation would inject the null-checking at the top of the function using the defaults.
