@@ -53,3 +53,10 @@ const foo = (bar = 'a') => {
 const { bar = 'a' } = host
 ```
 
+May be possible to implement as a helper function (with `Function::toString`) or decorator (https://github.com/tc39/proposal-decorators) and/or a Babel plugin transform, e.g.:
+
+```js
+import nullDefaults from 'null-defaults'
+
+const foo = nullDefaults((foo = {})
+```
