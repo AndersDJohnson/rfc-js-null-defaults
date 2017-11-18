@@ -1,5 +1,5 @@
 # rfc-js-null-defaults
-A proposal for JS to support defaults for null values.
+A proposal for JS to support defaults for `null` values.
 
 JavaScript now supports defaulting values that are `undefined` in function arguments and in destructuring.
 
